@@ -72,7 +72,7 @@ exports.config = function(req, res){
 
   if(mongodb_url && facebook_client_id && facebook_client_secret) {
     configPath = path.normalize(__dirname + '/../config/index.json');
-    var json = JSON.stringify(_.extend(config, { db: mongodb_url.toLowerCase(), facebook: { client_id:facebook_client_id, client_secret:facebook_client_secret, "callback_url": "http://localhost:3000/auth/facebook/callback"} }));
+    var json = JSON.stringify(_.extend(config, { db: mongodb_url.toLowerCase(), facebook: { client_id:facebook_client_id, client_secret:facebook_client_secret, callback_url: "http://localhost:3000/auth/facebook/callback"} }));
     proc.push(fileGenerator(configPath, json, 'utf8'));
   }
 
@@ -83,6 +83,7 @@ exports.config = function(req, res){
   }
 
   if(api_url) {
+    api_url += ((api_url.substring(api_url.length - 1, api_url.length)) === '/' ? '' : '/');
     configPath = path.normalize(__dirname + '/../../mobile/src/app/common/enums.js');
     proc.push(apiUrlGenerator(configPath, api_url));
   }
