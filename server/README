@@ -1,0 +1,11 @@
+simple-plist has a broken plist submodule. to fix it, delete the simple-plist/node_modules/plist directory, then clone
+  https://github.com/akofman/plist.js
+
+then plist.js to plist
+
+The bug in simple-plist/plist is that empty values in an Info.plist will not get written out
+
+<key>NSLocationWhenInUseUsageDescription</key>
+<string/>
+
+the value is a <string/>, and when it gets written out it will dissappear.

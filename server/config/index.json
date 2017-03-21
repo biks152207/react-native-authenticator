@@ -1,0 +1,10 @@
+{
+  "db": "mongodb://localhost:27017/react_app",
+  "jwtSecret": "secret",
+  "graph": "https://graph.facebook.com",
+  "facebook": {
+    "client_id": "1780990305515917",
+    "client_secret": "cc7341b671731df7efe44add63b1c79e",
+    "callback_url": "http://localhost:3000/auth/facebook/callback"
+  }
+}
